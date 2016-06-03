@@ -1,3 +1,11 @@
 body {
 	padding-top: 70px;
 }
+
+.products.table img {
+	max-width: 100px;
+}
+
+form.product .image {
+	max-width: 500px;
+}

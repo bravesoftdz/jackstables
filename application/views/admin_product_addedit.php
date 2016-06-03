@@ -6,7 +6,7 @@
 			</div>
 <?php endif; ?>
 
-<form method="POST">
+<form class="product" method="POST" enctype="multipart/form-data">
   <div class="form-group">
     <label for="name">Product Name</label>
     <input type="text" class="form-control" id="name" name="name" <?php if (!empty($edit)){ echo 'value="'.htmlentities($product->name).'"'; }else if (!empty($_POST['name'])){ echo 'value="'.htmlentities($_POST['name']).'"'; } ?>>
@@ -29,7 +29,21 @@
   <?php if (!empty($edit)): ?>
   <input type="hidden" name="id" value="<?=$product->id?>" />
 
+    <?php if (!empty($product->image)): ?>
+      <div class="form-group">
+      <img class="image" src="<?=base_url('images/products/'.$product->image)?>">
+      <label><input type="checkbox" name="remove_image" value="1" />Remove Image</label>
+      </div>
+    <?php endif; ?>
 
   <?php endif; ?>
+
+  <div class="form-group">
+  <label class="btn btn-default btn-file">
+    <?php if (!empty($edit)){ ?>Replace <?php } ?>Image <input type="file" name="image" style="display: block;">
+  </label>
+</div>
+
+
   <button type="submit" class="btn btn-primary"><?php if (!empty($edit)){ echo 'Update'; }else{ echo 'Add'; }?></button>
 </form>

@@ -28,19 +28,16 @@
 
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/admin/products/view">View/Edit Products</a></li>
-            <li><a href="/admin/products/add">Add Product</a></li>
-          </ul>
-        </li>
-
-        <li><a href="/admin/categories">Categories</a>
+            <li><a href="<?=base_url('admin/products/view')?>">Products</a></li>
+            <li><a href="<?=base_url('admin/products/add')?>">Add Product</a></li>
+            <li><a href="<?=base_url('admin/categories')?>">Categories</a></li>
       </ul>
 
             <div class="container">
-        <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><?=$_SESSION['logged_in_user']?></a></p>
+             <a class="navbar-text navbar-right" href="<?=base_url('admin/logout')?>">Logout</a>
+        <p class="navbar-text navbar-right">Signed in as <?=$_SESSION['logged_in_user']?></p>
+       
+
       </div>
     </div><!-- /.navbar-collapse -->
 

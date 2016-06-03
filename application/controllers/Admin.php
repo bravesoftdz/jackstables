@@ -78,6 +78,12 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	/** 
+	 * admin/products[/view|/edit/id|/add|/remove]
+	 * View products, add, edit, or remove products
+	 * @param $action add, edit, view, remove
+	 * @param $product_id for editing or removing a specific product
+	 */
 	public function products($action = 'view', $product_id = null){
 		$this->assert_logged_in();
 		$data = ['edit'=> false];
@@ -157,7 +163,7 @@ class Admin extends CI_Controller {
 
 	}
 
-	public function product_confirm_remove($product_id){
+	private function product_confirm_remove($product_id){
 			$this->load->view('admin_header', ['title'=> 'Remove a Product']);
 			$this->load->view('admin_product_remove', ['product'=> $this->Product_model->get($product_id)]);
 			$this->load->view('admin_footer');	
@@ -167,7 +173,6 @@ class Admin extends CI_Controller {
 	 * Log out of the session and show the login page
 	 */
 	public function logout(){
-		session_start();
 		unset($_SESSION['logged_in_user']);
 		session_destroy();
 		unset($_SESSION);

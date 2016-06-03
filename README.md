@@ -14,6 +14,7 @@ Additional Comments
 - We could add pagination to admin/products and products page
 - Category could be its own table and have a description, etc
 - We could use ajax to spice it up a bit (removing, inline editing, etc)
+- Image uploads should resize the image so it is not too big/highres
 
 Original Description:
 
