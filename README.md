@@ -15,3 +15,9 @@ Additional Comments
 - Category could be its own table and have a description, etc
 - We could use ajax to spice it up a bit (removing, inline editing, etc)
 
+Original Description:
+
+Your boss hands you a set of requirements for Jack’s Table Emporium’s new website. This website should contain a home page which showcases their various products. There should be three supporting product pages: one for tables, one for chairs and one for table accessories. Finally, there should be a contact form. The contact form should validate that the proper fields are completed and send the form via email to the site owner.
+There should also be an admin section that allows the site owner to log in and adjust the contents of each of the three product pages. The pages should allow an unlimited number of types of product (think of each individual page as a ‘category’ for the product). The owner should be able to add / edit / remove products at will. Additionally, each product should have an inventory count with it that can also be adjusted. Changes applied in the admin section should appear immediately on the public facing portions of the site.
+
+

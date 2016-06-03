@@ -4,7 +4,8 @@ CREATE TABLE `product` (
 	`name`	TEXT NOT NULL UNIQUE,
 	`description`	TEXT NOT NULL,
 	`category`	TEXT,
-	`image`	TEXT
+	`image`	TEXT,
+	`inventory_count`	INTEGER
 );
 
 

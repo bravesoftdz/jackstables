@@ -53,6 +53,7 @@ class Product_model extends CI_Model {
                 $data['name'] = trim($this->input->post('name'));
                 $data['description'] = trim($this->input->post('description'));
                 $data['category'] = trim($this->input->post('category'));
+                $data['inventory_count'] = $this->input->post('inventory_count');
                 return $data;        
         }
 
@@ -68,6 +69,14 @@ class Product_model extends CI_Model {
             if (strlen($data['category']) < 3){
                 return 'Category must be at least 3 characters';
             }  
+
+            if (!is_numeric($data['inventory_count'])){
+                return 'Inventory count must be a number';
+            }
+
+            if ($data['inventory_count'] < 0){
+                return 'Inventory count must be at least 0';
+            }
 
             return false;        
         }
