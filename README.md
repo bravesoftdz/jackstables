@@ -13,4 +13,5 @@ Additional Comments
 - Ideally I would of been much more generic with everything instead of "Jack's Tables" but because this is going to be a fetch-and-go type of deal with minimal to no setup required, I just wanted to include all the configuration and database right in the project for that sake only.
 - We could add pagination to admin/products and products page
 - Category could be its own table and have a description, etc
+- We could use ajax to spice it up a bit (removing, inline editing, etc)
 

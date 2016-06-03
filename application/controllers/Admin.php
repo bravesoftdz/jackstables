@@ -103,14 +103,64 @@ class Admin extends CI_Controller {
 				}
 
 				$data = array('edit'=>true, 'product'=>$product);
+				
+
+				if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+					$updated = $this->Product_model->update_from_post($product_id, $errors);
+					if ($updated === false){
+						$data['errors'] = $errors;
+					}else{
+						redirect(base_url().'admin/products');
+						exit;
+					}
+				}
+
 
 			case 'add':
-				$this->load->view('admin_header', ['title'=> 'Add a Product']);
+				if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+					$p_id = $this->Product_model->add_from_post($errors);
+					if ($p_id === false){
+						$data['errors'] = $errors;
+					}else{
+						$this->load->view('admin_header', ['title'=> 'Product Added']);
+						$this->load->view('admin_product_added', [
+							'product_id'=>$p_id, 
+							'product'=> $this->Product_model->get($p_id)
+							]);
+						$this->load->view('admin_footer');
+						return;
+					}
+				}
+
+				$this->load->view('admin_header', ['title'=> $data['edit'] ? 'Edit a Product' : 'Add a Product']);
 				$this->load->view('admin_product_addedit', $data);
 				$this->load->view('admin_footer');	
-			break;			
+			break;	
+
+			case 'remove':
+				if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+					if (!empty($_POST['remove'])){
+						if ($this->Product_model->delete($product_id)){
+							redirect(base_url().'admin/products');
+							exit;
+						}else{
+							//Error deleting
+							redirect(base_url().'admin/products');
+							exit;
+						}
+					}
+				}else{
+					$this->product_confirm_remove($product_id);		
+				}
+			break;
 		}
 
+	}
+
+	public function product_confirm_remove($product_id){
+			$this->load->view('admin_header', ['title'=> 'Remove a Product']);
+			$this->load->view('admin_product_remove', ['product'=> $this->Product_model->get($product_id)]);
+			$this->load->view('admin_footer');	
 	}
 
 	/** 
