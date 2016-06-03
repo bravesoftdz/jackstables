@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?=$title?></title>
-        <link rel="stylesheet" href="/css/admin/styles.css">
+        <title>Jack's Table Emporium - <?=$title?></title>
+        <link rel="stylesheet" href="<?=base_url('css/styles.css')?>">
 
         <!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -21,26 +21,16 @@
     </head>
     <body>
     <div class="container">
-    <nav class="navbar navbar-default navbar-fixed-top">
-       <div class="navbar-header">
-          <a class="navbar-brand" href="<?=base_url('admin')?>">Jack's Table Emporium</a>
-        </div>
 
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-            <li><a href="<?=base_url('admin/products/view')?>">Products</a></li>
-            <li><a href="<?=base_url('admin/products/add')?>">Add Product</a></li>
-            <li><a href="<?=base_url('admin/categories')?>">Categories</a></li>
-      </ul>
+    <div class="logo">
+      <a href="<?=base_url()?>"><img src="<?=base_url('images/logo.png')?>"></a>
+    </div>
 
-            <div class="container">
-             <a class="navbar-text navbar-right" href="<?=base_url('admin/logout')?>">Logout</a>
-        <p class="navbar-text navbar-right">Signed in as <?=$_SESSION['logged_in_user']?></p>
-       
-
-      </div>
-    </div><!-- /.navbar-collapse -->
-
-
-
+    <nav>
+     <ul>
+      <li><a href="<?=base_url('tables')?>">Tables</a></li>
+      <li><a href="<?=base_url('chairs')?>">Chairs</a></li>
+      <li><a href="<?=base_url('accessories')?>">Accessories</a></li>
+     </ul>
     </nav>
+

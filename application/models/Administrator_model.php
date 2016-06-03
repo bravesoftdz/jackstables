@@ -1,5 +1,8 @@
 <?php 
 
+/** 
+ * This deals with the administrator table and lets you check to see if a user can login
+ */
 class Administrator_model extends CI_Model {
 
         /** 

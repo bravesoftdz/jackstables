@@ -1,5 +1,9 @@
 <?php 
 
+/** 
+ * This class deals with products as stored in the product table
+ * It lets you fetch, get, add, update, and delete products
+ */
 class Product_model extends CI_Model {
 
         /** 
@@ -70,11 +74,6 @@ class Product_model extends CI_Model {
             if (strlen($data['name']) < 3){
                 return 'Name must be at least 3 characters';
             }        
-
-            $products = $this->fetch('', $category = null, $product_id = null, $product_name = $data['name']);        
-            if (!empty($products)){
-                return $data['name'].' is already a product. Choose another name';
-            }
 
             if (strlen($data['category']) < 3){
                 return 'Category must be at least 3 characters';
@@ -168,6 +167,12 @@ class Product_model extends CI_Model {
                 if ($errors !== false){
                     return false;
                 }
+
+                $products = $this->fetch('', $category = null, $product_id = null, $product_name = $data['name']);        
+                if (!empty($products)){
+                    return $data['name'].' is already a product. Choose another name';
+                }
+                
                 
                 $nw_file_name = $this->check_file_upload($errors);
                 if ($nw_file_name === false){
