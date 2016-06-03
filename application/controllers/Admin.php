@@ -78,17 +78,39 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	public function products($action){
+	public function products($action = 'view', $product_id = null){
 		$this->assert_logged_in();
-
-
+		$data = ['edit'=> false];
 
 		$this->load->model('Product_model');
-		$products = $this->Product_model->fetch('ORDER BY name ASC');
+		
+		switch($action){
+			case 'view':
+				$products = $this->Product_model->fetch('ORDER BY name ASC');
 
-		$this->load->view('admin_header', ['title'=> 'Products']);
-		$this->load->view('admin_products', ['products'=>$products]);
-		$this->load->view('admin_footer');
+				$this->load->view('admin_header', ['title'=> 'Products']);
+				$this->load->view('admin_products', ['products'=>$products]);
+				$this->load->view('admin_footer');
+			break;
+
+			case 'edit':
+				$product = $this->Product_model->get($product_id);
+				if (empty($product)){
+					$this->load->view('admin_header', ['title'=> 'Edit Invalid Product']);
+					$this->load->view('admin_product_addedit_invalid', $data);
+					$this->load->view('admin_footer');	
+				    return;
+				}
+
+				$data = array('edit'=>true, 'product'=>$product);
+
+			case 'add':
+				$this->load->view('admin_header', ['title'=> 'Add a Product']);
+				$this->load->view('admin_product_addedit', $data);
+				$this->load->view('admin_footer');	
+			break;			
+		}
+
 	}
 
 	/** 

@@ -2,7 +2,7 @@ Welcome to Jack's Table Emporium
 Installation
 - application/db should have write permissions
 - images/products should have write permissions
-
+- go to application/config/config.php and change $config['base_url'] = 'http://jackstables.dev:8042/'; to the correct base url
 
 Additional Comments
 - Database should be MySQL since it is more strict with the data types, but sqlite was chosen for simplicity and small number of rows
