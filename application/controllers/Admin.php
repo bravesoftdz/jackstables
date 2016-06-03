@@ -20,14 +20,29 @@ class Admin extends CI_Controller {
 	 */
 	public function index()
 	{
-		session_start();
+		$this->welcome_or_login();
+	}
 
+	/** 
+	 * Show welcome page if logged in,
+	 * otherwise, show login page
+	 */
+	private function welcome_or_login(){
 		if (!empty($_SESSION['logged_in_user'])){
-			$this->load->view('admin_header');
+			$this->load->view('admin_header', ['title'=> 'Administration - Jack\'s Table Emporium']);
 			$this->load->view('admin_welcome');
 			$this->load->view('admin_footer');
 		}else{
 			$this->load->view('full/admin_login');
+		}		
+	}
+
+	private function assert_logged_in(){
+		if (empty($_SESSION['logged_in_user'])){
+			$this->load->view('full/admin_login', ['error'=>'You must be logged in to view this page', 'goto'=>uri_string()]);
+			exit;
+		}else{
+			return true;
 		}
 	}
 
@@ -35,8 +50,6 @@ class Admin extends CI_Controller {
 	 * Allow logins from POST or show the login page unless already logged in
 	 */
 	public function login(){
-		session_start();
-
 		//Is someone attempting to login?
 		if (!empty($_POST['username'])){
 			$this->load->model('Administrator_model', '', $connect_to_db = true);
@@ -48,7 +61,7 @@ class Admin extends CI_Controller {
 				$_SESSION['logged_in_time'] = time();
 				
 				//redirect header('Location: /admin/') or instead do the below
-				$this->load->view('admin_header');
+				$this->load->view('admin_header', ['title'=> 'Administration']);
 				$this->load->view('admin_welcome');
 				$this->load->view('admin_footer');
 				return;
@@ -61,8 +74,21 @@ class Admin extends CI_Controller {
 			}
 		}else{
 			//no one is attempting to login, do the same thign as ->index()
-			return $this->index();
+			$this->welcome_or_login();
 		}
+	}
+
+	public function products($action){
+		$this->assert_logged_in();
+
+
+
+		$this->load->model('Product_model');
+		$products = $this->Product_model->fetch('ORDER BY name ASC');
+
+		$this->load->view('admin_header', ['title'=> 'Products']);
+		$this->load->view('admin_products', ['products'=>$products]);
+		$this->load->view('admin_footer');
 	}
 
 	/** 

@@ -36,6 +36,9 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <?php if (isset($goto)): ?>
+			<input type="hidden" name="goto" value="<?=htmlentities($goto)?>">
+        <?php endif; ?>
       </form>
 
     </div> <!-- /container -->
