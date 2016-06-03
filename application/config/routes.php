@@ -53,6 +53,10 @@ $route['default_controller'] = 'main';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['tables'] = 'products/tables';
-$route['chairs'] = 'products/chairs';
-$route['accessories'] = 'products/accessories';
+/*
+$route['tables'] = 'products/show/tables';
+$route['chairs'] = 'products/show/chairs';
+$route['accessories'] = 'products/show/accessories';
+*/
+
+$route['(:any)'] = 'products/category/$1';
