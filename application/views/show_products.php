@@ -26,10 +26,6 @@
 				<p>No description found</p>
 		    <?php } ?>
 			</div>
-
-			<!-- <pre>
-		    <?php var_dump($product); ?>
-		    </pre> -->
 	    </div>
     </div>
 <?php endforeach; ?>

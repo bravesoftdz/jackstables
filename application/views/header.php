@@ -20,7 +20,7 @@
 
     </head>
     <body>
-    <div class="container">
+    <div class="container" id="main-content">
 
     <div class="logo">
       <a href="<?=base_url()?>"><img src="<?=base_url('images/logo.png')?>"></a>
@@ -28,9 +28,15 @@
 
     <nav>
      <ul>
-      <li><a href="<?=base_url('tables')?>">Tables</a></li>
-      <li><a href="<?=base_url('chairs')?>">Chairs</a></li>
-      <li><a href="<?=base_url('accessories')?>">Accessories</a></li>
+      <?php if (!empty($categories)): ?>
+        <?php foreach($categories as $c): ?>
+        <li><a href="<?=base_url(strtolower($c))?>"><?=$c?></a></li>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <li><a href="<?=base_url('tables')?>">Tables</a></li>
+        <li><a href="<?=base_url('chairs')?>">Chairs</a></li>
+        <li><a href="<?=base_url('accessories')?>">Accessories</a></li>
+      <?php endif; ?>
      </ul>
     </nav>
 

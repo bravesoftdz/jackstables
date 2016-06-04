@@ -1,12 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/** 
+ * This is the main default controller 
+ * which holds / and /contact-us
+ * @see application/config/routes.php 
+ */
 class Main extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('Product_model');
 
-		$this->load->view('header');
+		$this->load->view('header', ['categories'=>$this->Product_model->categories()]);
 		$this->load->view('show_products', ['products'=> $this->Product_model->fetch() ]);
 		$this->load->view('footer');
 	}
@@ -14,7 +19,7 @@ class Main extends CI_Controller {
 	public function contact(){
 		$errors = false;
 
-		if ($_SERVER['REQUEST_TYPE'] == 'POST'){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$errors = '';
 			if (empty($_POST['name'])){
 				$errors = 'You must enter a name';
@@ -28,8 +33,6 @@ class Main extends CI_Controller {
 				$this->load->library('email');
 				$this->config->load('my_extra_config');
 
-
-
 				$this->email->from($_POST['email'], $_POST['name']);
 				$this->email->to($this->config->item('contact_us_email_to')); 
 
@@ -39,8 +42,8 @@ class Main extends CI_Controller {
 				$this->email->send();
 			}
 		}
-
-		$this->load->view('header');
+		$this->load->model('Product_model');
+		$this->load->view('header', ['categories'=>$this->Product_model->categories()]);
 		$this->load->view('contact_form', ['errors'=>$errors]);
 		$this->load->view('footer');
 	}

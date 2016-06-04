@@ -54,6 +54,21 @@ class Product_model extends CI_Model {
         }
 
         /** 
+         * Fetch all the distinct categories from the given products
+         * @return array categories of all the products
+         */
+        public function categories($orderby = 'ORDER BY category DESC'){
+            $sql = 'SELECT DISTINCT category FROM product '.$orderby;
+            $query = $this->db->query($sql);
+            $catobjs = $query->result();
+            $categories = [];
+            foreach($catobjs as $co){
+                $categories[] = $co->category;
+            }
+            return $categories;
+        }
+
+        /** 
          * Trim and sanitize the variables a bit
          * @return array of all product variables
          */
@@ -172,7 +187,7 @@ class Product_model extends CI_Model {
                 if (!empty($products)){
                     return $data['name'].' is already a product. Choose another name';
                 }
-                
+
                 
                 $nw_file_name = $this->check_file_upload($errors);
                 if ($nw_file_name === false){
