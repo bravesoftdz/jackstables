@@ -2,9 +2,10 @@
 
 ## Installation
 1. Set up apache to serve the public_html folder
-
-2. ci/application/db should have write permissions
+2. ci/application/db and ci/application/db/jackstables.sqlite3 should have write permissions
 3. public_html/images/products should have write permissions
+  ```cd public_html/images/products```
+  ```chmod a+w .```
 4. Go to ci/application/config/config.php and change $config['base_url'] = 'http://jackstables.dev:8042/'; to the correct base url of the website include trailing slash
 
 ## Review
