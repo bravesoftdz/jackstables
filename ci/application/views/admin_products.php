@@ -10,7 +10,7 @@
 <tbody>
 <?php foreach($products as $p): ?>
 	<tr>
-		<td><?=$p->id?></td><td><?php if (!empty($p->image) && file_exists(__DIR__.'/../../images/products/'.$p->image)){ ?><img class="image" src="<?=base_url('images/products/'.$p->image)?>"><?php } ?></td><td><?=htmlentities($p->name)?></td><td><?=htmlentities($p->description)?></td>
+		<td><?=$p->id?></td><td><?php if (!empty($p->image) && file_exists(__DIR__.'/../../../public_html/images/products/'.$p->image)){ ?><img class="image" src="<?=base_url('images/products/'.$p->image)?>"><?php } ?></td><td><?=htmlentities($p->name)?></td><td><?=htmlentities($p->description)?></td>
 		
 		<td><?=htmlentities($p->category)?></td>
 		<td><?=htmlentities($p->inventory_count)?></td>

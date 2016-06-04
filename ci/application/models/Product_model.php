@@ -153,7 +153,7 @@ class Product_model extends CI_Model {
                     } else {
                         $this->load->helper('string');
 
-                        $upload_path =  __DIR__.'/../../images/products';
+                        $upload_path =  __DIR__.'/../../../public_html/images/products';
 
                         
                         do{
@@ -229,7 +229,7 @@ class Product_model extends CI_Model {
                     $cur_product = $this->get($id);
 
                     if (!empty($cur_product->image)){
-                        $old_file = __DIR__.'/../../images/products/'.$cur_product->image;
+                        $old_file = __DIR__.'/../../../public_html/images/products/'.$cur_product->image;
                         if (file_exists($old_file)){
                             unlink($old_file);
                         }
@@ -244,7 +244,7 @@ class Product_model extends CI_Model {
                         $cur_product = $this->get($id);
 
                         if (!empty($cur_product->image)){
-                            $old_file = __DIR__.'/../../images/products/'.$cur_product->image;
+                            $old_file = __DIR__.'/../../../public_html/images/products/'.$cur_product->image;
                             if (file_exists($old_file)){
                                 unlink($old_file);
                             }
@@ -264,7 +264,7 @@ class Product_model extends CI_Model {
 
             //be sure to delete the picture if it exists
             if (!empty($cur_product->image)){
-                $old_file = __DIR__.'/../../images/products/'.$cur_product->image;
+                $old_file = __DIR__.'/../../../public_html/images/products/'.$cur_product->image;
                 if (file_exists($old_file)){
                     unlink($old_file);
                 }
