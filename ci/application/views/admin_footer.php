@@ -1,4 +1,4 @@
     </div> <!-- /container -->
-        <script src="/js/admin/site.js"></script>
+        <script src="<?=base_url()?>js/admin/site.js"></script>
     </body>
 </html>
