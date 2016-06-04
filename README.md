@@ -13,7 +13,7 @@
 2. My Code is in ci/application/controllers/ , ci/application/models , ci/application/config/my_extra_config.php , ci/application/config/routes.php
 3. Also there is some code in public_html/css and js
 
-## Additional Comments
+## Additional Comments/Improvements
 - Database should be MySQL since it is more strict with the data types, but sqlite was chosen for simplicity and small number of rows
 - There should be a way to add multiple picture uploads, for example another table product_image pid image name
 - There could be more product details such as pricing if we were to go with e-commerce and a shopping cart mechanism
