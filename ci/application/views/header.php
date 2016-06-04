@@ -33,9 +33,9 @@
         <li><a href="<?=base_url('category/'.strtolower($c))?>"><?=$c?></a></li>
         <?php endforeach; ?>
       <?php else: ?>
-        <li><a href="<?=base_url('tables')?>">Tables</a></li>
-        <li><a href="<?=base_url('chairs')?>">Chairs</a></li>
-        <li><a href="<?=base_url('accessories')?>">Accessories</a></li>
+        <li><a href="<?=base_url('category/tables')?>">Tables</a></li>
+        <li><a href="<?=base_url('category/chairs')?>">Chairs</a></li>
+        <li><a href="<?=base_url('category/accessories')?>">Accessories</a></li>
       <?php endif; ?>
      </ul>
     </nav>
