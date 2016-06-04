@@ -30,7 +30,7 @@
      <ul>
       <?php if (!empty($categories)): ?>
         <?php foreach($categories as $c): ?>
-        <li><a href="<?=base_url(strtolower($c))?>"><?=$c?></a></li>
+        <li><a href="<?=base_url('category/'.strtolower($c))?>"><?=$c?></a></li>
         <?php endforeach; ?>
       <?php else: ?>
         <li><a href="<?=base_url('tables')?>">Tables</a></li>

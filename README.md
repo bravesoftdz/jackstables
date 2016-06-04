@@ -15,6 +15,8 @@ Additional Comments
 - Category could be its own table and have a description, etc
 - We could use ajax to spice it up a bit (removing, inline editing, etc)
 - Image uploads should resize the image so it is not too big/highres
+- In Admin/products/view we could utilize sorting by columns to make it easier to find products
+- Also we could have a search box to quickly find a product
 
 Original Description:
 

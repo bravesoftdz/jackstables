@@ -59,4 +59,4 @@ $route['chairs'] = 'products/show/chairs';
 $route['accessories'] = 'products/show/accessories';
 */
 $route['contact-us'] = 'main/contact';
-$route['(:any)'] = 'products/category/$1';
+$route['category/(:any)'] = 'products/category/$1';

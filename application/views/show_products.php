@@ -11,12 +11,12 @@
 	<?php } ?>
 		<div class="col-md-3">
 		<div class="product">
-			<h2 class="name"><?=$product->name?></h2>
+			<h2 class="name"><a href="<?=base_url('products/view/'.$product->id)?>"><?=$product->name?></a></h2>
 			<div class="image">
 			<?php if (!empty($product->image)){ ?>
-				<img src="/images/products/<?=$product->image ?>">
+				<a href="<?=base_url('products/view/'.$product->id)?>"><img src="<?=base_url('images/products/')?>/<?=$product->image ?>"></a>
 		    <?php }else{ ?>
-		    	<div class="placeholder"><img src="/images/image_placeholder.png"></div>
+		    	<div class="placeholder"><a href="<?=base_url('products/view/'.$product->id)?>"><img src="<?=base_url('images/image_placeholder.png')?>"></a></div>
 		    <?php } ?>
 		    </div>
 		    <div class="description">

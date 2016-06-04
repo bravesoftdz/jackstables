@@ -17,7 +17,10 @@
 					<p>No description found</p>
 			    <?php } ?>
 				</div>
+
+				<button class="buy-now-button btn btn-primary">Buy Now</button>
 		    </div>
 	</div>
 	</div>
 </div>
+<script src="<?=base_url('js/one-product.js')?>"></script>

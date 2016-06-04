@@ -78,6 +78,15 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function categories(){
+		$this->load->model('Product_model');
+
+		$this->load->view('admin_header', ['title'=> 'Products']);
+		$this->load->view('admin_categories', ['categories'=>$this->Product_model->categories()]);
+		$this->load->view('admin_footer');	
+	}
+
+
 	/** 
 	 * admin/products[/view|/edit/id|/add|/remove]
 	 * View products, add, edit, or remove products
@@ -163,6 +172,10 @@ class Admin extends CI_Controller {
 
 	}
 
+	/** 
+	 * Helper function to automatically load the remove product page
+	 * @param int $product_id the id of the product to remove
+	 */
 	private function product_confirm_remove($product_id){
 			$this->load->view('admin_header', ['title'=> 'Remove a Product']);
 			$this->load->view('admin_product_remove', ['product'=> $this->Product_model->get($product_id)]);
