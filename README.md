@@ -7,6 +7,11 @@
 3. public_html/images/products should have write permissions
 4. Go to ci/application/config/config.php and change $config['base_url'] = 'http://jackstables.dev:8042/'; to the correct base url of the website include trailing slash
 
+## Review
+1. To not get confused, there is codeigniter code and then there is my code. 
+2. My Code is in ci/application/controllers/ , ci/application/models , ci/application/config/my_extra_config.php , ci/application/config/routes.php
+3. Also there is some code in public_html/css and js
+
 ## Additional Comments
 - Database should be MySQL since it is more strict with the data types, but sqlite was chosen for simplicity and small number of rows
 - There should be a way to add multiple picture uploads, for example another table product_image pid image name
