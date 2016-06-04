@@ -181,7 +181,8 @@ class Product_model extends CI_Model {
 
                 $products = $this->fetch('', $category = null, $product_id = null, $product_name = $data['name']);        
                 if (!empty($products)){
-                    return $data['name'].' is already a product. Choose another name';
+                    $errors = $data['name'].' is already a product. Choose another name';
+                    return false;
                 }
 
                 $errors = $this->check_errors($data);
@@ -202,7 +203,8 @@ class Product_model extends CI_Model {
                 }
 
                 if (!$this->db->insert('product', $data)){
-                        return 'Database error';
+                        $errors = 'Database error';
+                        return false;
                 }else{
                         return $this->db->insert_id();
                 }
