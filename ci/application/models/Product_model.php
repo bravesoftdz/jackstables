@@ -199,7 +199,7 @@ class Product_model extends CI_Model {
                 }
 
                 if (!$this->db->insert('product', $data)){
-                        $errors = 'Database error';
+                        return 'Database error';
                 }else{
                         return $this->db->insert_id();
                 }
