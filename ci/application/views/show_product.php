@@ -5,9 +5,9 @@
 				<h2 class="name"><?=$product->name?></h2>
 				<div class="image">
 				<?php if (!empty($product->image)){ ?>
-					<img src="/images/products/<?=$product->image ?>">
+					<img src="<?=base_url()?>images/products/<?=$product->image ?>">
 			    <?php }else{ ?>
-			    	<div class="placeholder"><img src="/images/image_placeholder.png"></div>
+			    	<div class="placeholder"><img src="<?=base_url()?>images/image_placeholder.png"></div>
 			    <?php } ?>
 			    </div>
 			    <div class="description">
