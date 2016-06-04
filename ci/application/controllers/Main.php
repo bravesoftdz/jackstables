@@ -36,7 +36,7 @@ class Main extends CI_Controller {
 				$this->email->from($_POST['email'], $_POST['name']);
 
 				$email_to = $this->config->item('contact_us_email_to');
-				var_dump($email_to);
+
 				$this->email->to($email_to); 
 
 				$this->email->subject('Contact Us - Form');
@@ -44,7 +44,7 @@ class Main extends CI_Controller {
 
 				$email_sent = $this->email->send();
 
-
+				echo $this->email->print_debugger();
 			}
 		}
 		$this->load->model('Product_model');
