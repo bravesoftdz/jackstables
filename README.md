@@ -1,12 +1,13 @@
-Welcome to Jack's Table Emporium
-Installation
+# Welcome to Jack's Table Emporium
+
+## Installation
 1. Set up apache to serve the public_html folder
 
 2. ci/application/db should have write permissions
 3. public_html/images/products should have write permissions
 4. Go to ci/application/config/config.php and change $config['base_url'] = 'http://jackstables.dev:8042/'; to the correct base url of the website include trailing slash
 
-Additional Comments
+## Additional Comments
 - Database should be MySQL since it is more strict with the data types, but sqlite was chosen for simplicity and small number of rows
 - There should be a way to add multiple picture uploads, for example another table product_image pid image name
 - There could be more product details such as pricing if we were to go with e-commerce and a shopping cart mechanism
@@ -20,7 +21,7 @@ Additional Comments
 - In Admin/products/view we could utilize sorting by columns to make it easier to find products
 - Also we could have a search box to quickly find a product
 
-Original Description:
+## Original Description:
 
 Your boss hands you a set of requirements for Jack’s Table Emporium’s new website. This website should contain a home page which showcases their various products. There should be three supporting product pages: one for tables, one for chairs and one for table accessories. Finally, there should be a contact form. The contact form should validate that the proper fields are completed and send the form via email to the site owner.
 There should also be an admin section that allows the site owner to log in and adjust the contents of each of the three product pages. The pages should allow an unlimited number of types of product (think of each individual page as a ‘category’ for the product). The owner should be able to add / edit / remove products at will. Additionally, each product should have an inventory count with it that can also be adjusted. Changes applied in the admin section should appear immediately on the public facing portions of the site.
