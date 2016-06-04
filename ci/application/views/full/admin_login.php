@@ -5,7 +5,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Admin Login</title>
-        <link rel="stylesheet" href="<?=base_url('css/style.css')?>">
+        <link rel="stylesheet" href="<?=base_url('css/admin/styles.css')?>">
 
         <!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -42,6 +42,6 @@
       </form>
 
     </div> <!-- /container -->
-        <script src="/js/admin/login.js"></script>
+        <script src="<?=base_url()?>js/admin/login.js"></script>
     </body>
 </html>
