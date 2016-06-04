@@ -2,6 +2,12 @@
 
 	<div class="col-md-12">
 
+        <?php if (!empty($error)): ?>
+			<div class="alert alert-danger">
+			  <strong>Error: </strong> <?=$error?>
+			</div>
+        <?php endif; ?>
+
 		<form method="POST">
 		  <div class="form-group">
 		    <label for="name">Your Name</label>
