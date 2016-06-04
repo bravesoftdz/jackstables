@@ -8,10 +8,11 @@
   ```cd public_html/images/products```
   ```chmod a+w .```
 4. Go to ci/application/config/config.php and change $config['base_url'] = 'http://jackstables.dev:8042/'; to the correct base url of the website include trailing slash
+5. The admin portion of the website is in /admin and the user is admin password 123
 
 ## Review
 1. To not get confused, there is codeigniter code and then there is my code. 
-2. My Code is in ci/application/controllers/ , ci/application/models , ci/application/config/my_extra_config.php , ci/application/config/routes.php
+2. My Code is in ci/application/views/, ci/application/controllers/ , ci/application/models , ci/application/config/my_extra_config.php , ci/application/config/routes.php
 3. Also there is some code in public_html/css and js
 
 ## Additional Comments/Improvements
