@@ -8,7 +8,8 @@
   ```cd public_html/images/products```
   ```chmod a+w .```
 4. Go to ci/application/config/config.php and change $config['base_url'] = 'http://jackstables.dev:8042/'; to the correct base url of the website include trailing slash
-5. The admin portion of the website is in /admin and the user is admin password 123
+5. Go to ci/application/config/my_extra_config.php and change the email address of where to receive the comments
+6. The admin portion of the website is in /admin and the user is admin password 123
 
 ## Review
 1. To not get confused, there is codeigniter code and then there is my code. 
