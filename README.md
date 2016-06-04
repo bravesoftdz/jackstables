@@ -2,7 +2,7 @@
 
 ## Installation
 1. Set up apache to serve the public_html folder
-2. ci/application/db and ci/application/db/jackstables.sqlite3 should have write permissions: db folder should look something like this: ```drwxrwxr--  2 root www-data  4096 Jun  4 16:03 .```
+2. ci/application/db and ci/application/db/jackstables.sqlite3 should have write permissions: db folder should look something like this and have write and execute permissions: ```drwxrwxr--  2 root www-data  4096 Jun  4 16:03 .```
   and jackstables.sqlite3 should look something like this: ```-rwxrw-r--  1 root www-data 11264 Jun  4 16:03 jackstables.sqlite3``` Becuase the group is www-data (which is webserver) and group has write permissions
 3. public_html/images/products should have write permissions
   ```cd public_html/images/products```
