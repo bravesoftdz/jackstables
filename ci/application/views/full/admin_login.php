@@ -24,7 +24,7 @@
 
 	<h1>Adminstration</h1>
 
-      <form class="form-signin" method="POST" action="/admin/login">
+      <form class="form-signin" method="POST" action="<?=base_url('admin/login')?>">
         <h2 class="form-signin-heading">Please sign in</h2>
         <?php if (isset($error)): ?>
 			<div class="alert alert-danger">
