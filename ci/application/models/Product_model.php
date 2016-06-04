@@ -178,15 +178,18 @@ class Product_model extends CI_Model {
          */
         public function add_from_post(&$errors){
                 $data = $this->sanitize_from_post();
-                $errors = $this->check_errors($data);
-                if ($errors !== false){
-                    return false;
-                }
 
                 $products = $this->fetch('', $category = null, $product_id = null, $product_name = $data['name']);        
                 if (!empty($products)){
                     return $data['name'].' is already a product. Choose another name';
                 }
+
+                $errors = $this->check_errors($data);
+                if ($errors !== false){
+                    return false;
+                }
+
+
 
                 
                 $nw_file_name = $this->check_file_upload($errors);
