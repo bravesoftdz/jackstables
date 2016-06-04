@@ -32,6 +32,7 @@ class Products extends CI_Controller {
 	/** 
 	 * View more details/bigger picture of a specific product
 	 * Good for viewing one product at a time
+	 * @param int $product_id the product id we want to view
 	 */
 	public function view($product_id){
 		$this->load->model('Product_model');

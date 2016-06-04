@@ -7,6 +7,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @see application/config/routes.php 
  */
 class Main extends CI_Controller {
+	/** 
+	 * This is the main page, where we fetch all products 
+	 * and shoow them on the homepage
+	 */
 	public function index()
 	{
 		$this->load->model('Product_model');
@@ -16,6 +20,11 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	/** 
+	 * This is the contact us page 
+	 * It accepts a name, email and comments to send them to the webmaster
+	 * stored in application/config/my_extra_config.php
+	 */
 	public function contact(){
 		$errors = false;
 

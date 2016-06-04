@@ -4,19 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
 
 	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/admin
-	 *	- or -
-	 * 		http://example.com/index.php/admin/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 * Show main login page or main admin page depending
+	 * on whether or not you are logged in
 	 */
 	public function index()
 	{
@@ -33,14 +22,22 @@ class Admin extends CI_Controller {
 			$this->load->view('admin_welcome');
 			$this->load->view('admin_footer');
 		}else{
-			$this->load->view('full/admin_login');
+			$data = [];
+			if ($this->input->post('goto')){
+				$data['goto'] = $this->input->post('goto');
+			}
+			$this->load->view('full/admin_login', $data);
 		}		
 	}
 
+	/** 
+	 * Assert that the user is logged in, or take him to the login page where he can continue on after logging in
+	 * @return boolean true on successe logged in already, exit and show full login page on failure
+	 */
 	private function assert_logged_in(){
 		if (empty($_SESSION['logged_in_user'])){
-			$this->load->view('full/admin_login', ['error'=>'You must be logged in to view this page', 'goto'=>uri_string()]);
-			exit;
+			die( $this->load->view('full/admin_login', ['error'=>'You must be logged in to view this page', 'goto'=>uri_string()], true) );
+
 		}else{
 			return true;
 		}
@@ -60,6 +57,11 @@ class Admin extends CI_Controller {
 				$_SESSION['logged_in_user'] = $this->input->post('username');
 				$_SESSION['logged_in_time'] = time();
 				
+				if ($this->input->post('goto')){
+					redirect(base_url().$this->input->post('goto'));
+					return;
+				}
+
 				//redirect header('Location: /admin/') or instead do the below
 				$this->load->view('admin_header', ['title'=> 'Administration']);
 				$this->load->view('admin_welcome');
@@ -78,7 +80,12 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	/** 
+	 * Show a list of categories produced by each product's "category" value
+	 */
 	public function categories(){
+		$this->assert_logged_in();
+
 		$this->load->model('Product_model');
 
 		$this->load->view('admin_header', ['title'=> 'Products']);
@@ -88,7 +95,7 @@ class Admin extends CI_Controller {
 
 
 	/** 
-	 * admin/products[/view|/edit/id|/add|/remove]
+	 * admin/products[/view|/edit/id|/add|/remove/id]
 	 * View products, add, edit, or remove products
 	 * @param $action add, edit, view, remove
 	 * @param $product_id for editing or removing a specific product

@@ -13,7 +13,8 @@
 ## Review
 1. To not get confused, there is codeigniter code and then there is my code. 
 2. My Code is in ci/application/views/, ci/application/controllers/ , ci/application/models , ci/application/config/my_extra_config.php , ci/application/config/routes.php
-3. Also there is some code in public_html/css and js
+3. The database and schema are located in ci/application/db
+4. Also there is some code in public_html/css and js
 
 ## Additional Comments/Improvements
 - Database should be MySQL since it is more strict with the data types, but sqlite was chosen for simplicity and small number of rows
