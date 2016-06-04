@@ -30,6 +30,7 @@
 - Image uploads should resize the image so it is not too big/highres
 - In Admin/products/view we could utilize sorting by columns to make it easier to find products
 - Also we could have a search box to quickly find a product
+- If the admin was logged in, we could add admin-capabilities to the main site homepage (edit/delete) instead of requiring to go into the admin section to do everything
 
 ## Original Description:
 
