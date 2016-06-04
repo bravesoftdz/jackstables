@@ -144,6 +144,8 @@ class Admin extends CI_Controller {
 					if ($p_id === false){
 						$data['errors'] = $errors;
 					}else{
+						var_dump($p_id);
+						
 						$this->load->view('admin_header', ['title'=> 'Product Added']);
 						$this->load->view('admin_product_added', [
 							'product_id'=>$p_id, 
