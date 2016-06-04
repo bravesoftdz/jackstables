@@ -42,12 +42,14 @@ class Main extends CI_Controller {
 				$this->email->subject('Contact Us - Form');
 				$this->email->message($_POST['comments']);	
 
+				/** old fashioned way **
 				$subject = "Contact Us - Jack's Emporium";
 			
 				$headers = "From: ".$_POST['email'];
 				$email_sent = mail($email_to,$subject,$_POST['comments'],$headers);
+				**/
 
-				//$email_sent = $this->email->send();
+				$email_sent = $this->email->send();
 
 				//echo $this->email->print_debugger();
 			}
