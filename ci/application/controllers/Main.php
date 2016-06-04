@@ -34,7 +34,10 @@ class Main extends CI_Controller {
 				$this->config->load('my_extra_config');
 
 				$this->email->from($_POST['email'], $_POST['name']);
-				$this->email->to($this->config->item('contact_us_email_to')); 
+
+				$email_to = $this->config->item('contact_us_email_to');
+				var_dump($email_to);
+				$this->email->to($email_to); 
 
 				$this->email->subject('Contact Us - Form');
 				$this->email->message($_POST['comments']);	
